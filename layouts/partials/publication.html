@@ -10,7 +10,7 @@
 
 {{ with .context.note }}<p style="margin:0 0 5px; line-height:1.2;">{{ . }}</p>{{ end }}
 
-<p style="margin:0 0 5px; line-height:1.2;">
+<p style="margin:0 0 5px; line-height:1.2; display: inline;">
     {{ with .context.bookprefix }}<em>{{ . }}</em>{{ end }}
     {{ with .context.book }}<em><u>{{ . }}</u></em>{{ end }}
     {{ with .context.booksuffix }}<em>{{ . }}</em>{{ end }}
