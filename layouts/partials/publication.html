@@ -1,6 +1,6 @@
 <h3 style="margin:20px 0 5px; line-height:1.2;">
     {{ .context.title }}
-    <span style="float:right;">
+    <span style="float:right; font-weight:normal;">
         {{ with .context.pdflink }}<a href="{{ . }}" target="blank">[PDF]</a>{{ end }}
         {{ with .context.links }}
         {{ range . }}
@@ -14,7 +14,7 @@
 
 {{ with .context.note }}<p style="margin:0 0 5px; line-height:1.2;">{{ . }}</p>{{ end }}
 <p style="margin:0 0 5px; line-height:1.2;">
-{{ with .context.bookprefix }}<em>{{ . }}</em>{{ end }}{{ with .context.book }}<em><u>{{ . }}</u></em>{{ end }}{{ with .context.booksuffix }}<em>{{ . }}</em>{{ end }}
+    {{ with .context.bookprefix }}<em>{{ . }}</em>{{ end }}{{ with .context.book }}<em><u>{{ . }}</u></em>{{ end }}{{ with .context.booksuffix }}<em>{{ . }}</em>{{ end }}
 </p>
 {{ $pid := .pid }}
 {{ with .context.abstract }}<p style="margin:0 0 5px; line-height:1.2;"><a href="javascript:toggle({{ $pid }})">Abstract<span id="pubabslink_{{ $pid }}"> (click to expand)</span></a><span id="pubabs_{{ $pid }}" style="display:none;">: {{ . }}</span></p>{{ end }}
