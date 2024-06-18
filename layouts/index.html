@@ -34,7 +34,7 @@
 
 {{ with .Site.Data.publications }}
 <hr>
-<h2 style="margin:40px 0 10px;" id="publications">Publications</h2>
+<h2 style="margin:40px 0 10px;" id="publications">Publications and Accepted Papers</h2>
 {{ range . }}
 {{ range .works }}
 {{ partial "publication.html" (dict "context" . "pid" ($scratch.Get "pubcnt")) }}
