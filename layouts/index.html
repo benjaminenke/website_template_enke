@@ -20,6 +20,18 @@
 {{ $scratch := newScratch }}
 {{ $scratch.Set "pubcnt" 0 }}
 
+{{ with .Site.Data.review_and_perspectives }}
+<hr>
+<h2 id="workinprogress">Review and Perspectives</h2>
+{{ range . }}
+{{ range .works }}
+{{ partial "publication.html" (dict "context" . "pid" ($scratch.Get "pubcnt")) }}
+{{ $scratch.Add "pubcnt" 1 }}   
+{{ end }}
+{{ end }}
+{{ end }}
+
+
 {{ with .Site.Data.publications }}
 <hr>
 <h2 id="publications">Publications</h2>
@@ -43,16 +55,6 @@
 {{ end }}
 {{ end }}
 
-{{ with .Site.Data.work_in_progress }}
-<hr>
-<h2 id="workinprogress">Work in Progress</h2>
-{{ range . }}
-{{ range .works }}
-{{ partial "publication.html" (dict "context" . "pid" ($scratch.Get "pubcnt")) }}
-{{ $scratch.Add "pubcnt" 1 }}   
-{{ end }}
-{{ end }}
-{{ end }}
 
 {{ with .GetPage "/sections/from-another-life.md" }}
 <hr>
