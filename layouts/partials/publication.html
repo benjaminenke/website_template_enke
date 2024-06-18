@@ -10,9 +10,11 @@
 
 {{ with .context.note }}<p style="margin:0 0 5px; line-height:1.2;">{{ . }}</p>{{ end }}
 
-<p style="margin:0 0 5px; line-height:1.2; display: inline;">
+<p style="margin:0 0 5px; line-height:1.2;">
     {{ with .context.bookprefix }}<em>{{ . }}</em>{{ end }}
-    {{ with .context.book }}<em><u>{{ . }}</u></em>{{ end }}
+    {{ with .context.book }}
+        <em><u>{{ . }}</u></em>{{ if not .context.booksuffix }}.<em></em>{{ end }}
+    {{ end }}
     {{ with .context.booksuffix }}<em>{{ . }}</em>{{ end }}
     {{ with .context.pdflink }}[<a href="{{ . }}" target="blank" style="font-weight:normal;">PDF</a>]{{ end }}
     {{ with .context.links }}
