@@ -10,14 +10,16 @@
 
 {{ with .context.note }}<p style="margin:0 0 5px; line-height:1.2;">{{ . }}</p>{{ end }}
 
-<p style="margin:0 0 5px; line-height:1.2; display: flex; flex-wrap: wrap;">
+<p style="margin:0 0 5px; line-height:1.2;">
     {{ with .context.bookprefix }}<em>{{ . }}</em>{{ end }}
     {{ with .context.book }}<em><u>{{ . }}</u></em>{{ end }}
     {{ with .context.booksuffix }}<em>{{ . }}</em>{{ end }}
-    {{ with .context.pdflink }}<a href="{{ . }}" target="blank" style="font-weight:normal; margin-left:10px; color:blue;">[PDF]</a>{{ end }}
+</p>
+<p style="margin:0 0 5px; line-height:1.2;">
+    {{ with .context.pdflink }}[<a href="{{ . }}" target="blank" style="font-weight:normal;">PDF</a>]{{ end }}
     {{ with .context.links }}
     {{ range . }}
-    <span style="margin-left:10px; color:blue;">[<a href="{{ .url }}" target="blank" style="font-weight:normal;">{{ .text }}</a>{{ with .note }}: {{ . }}{{ end }}]</span>
+    [<a href="{{ .url }}" target="blank" style="font-weight:normal;">{{ .text }}</a>{{ with .note }}: {{ . }}{{ end }}]
     {{ end }}
     {{ end }}
 </p>
