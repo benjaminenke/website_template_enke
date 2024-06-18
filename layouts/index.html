@@ -20,9 +20,9 @@
 {{ $scratch := newScratch }}
 {{ $scratch.Set "pubcnt" 0 }}
 
-{{ with .Site.Data.review_and_perspectives }}
+{{ with .Site.Data.reviews_and_perspectives }}
 <hr>
-<h2 id="workinprogress">Review and Perspectives</h2>
+<h2 id="workinprogress">Reviews and Perspectives</h2>
 {{ range . }}
 {{ range .works }}
 {{ partial "publication.html" (dict "context" . "pid" ($scratch.Get "pubcnt")) }}
