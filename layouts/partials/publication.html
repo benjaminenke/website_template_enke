@@ -1,6 +1,12 @@
 <h3 style="margin:25px 0 5px; line-height:1.2;">{{ .context.title }}</h3>
 
-{{ with .context.coauthors }}<p style="margin:0 0 5px; line-height:1.2;">(with {{ . }})</p>{{ end }}
+{{ with .context.coauthors }}
+    <p style="margin:0 0 5px; line-height:1.2;">(with {{ . }})</p>
+{{ else }}
+    {{ with .context.coeditors }}
+        <p style="margin:0 0 5px; line-height:1.2;">{{ . }}</p>
+    {{ end }}
+{{ end }}
 
 {{ with .context.note }}<p style="margin:0 0 5px; line-height:1.2;">{{ . }}</p>{{ end }}
 
@@ -9,16 +15,12 @@
     {{ with .context.book }}<em><u>{{ . }}</u></em>{{ end }}
     {{ with .context.booksuffix }}<em>{{ . }}</em>{{ end }}
     {{ with .context.pdflink }}<a href="{{ . }}" target="blank" style="font-weight:normal; margin-left:10px;">[PDF]</a>{{ end }}
+    {{ with .context.links }}
+    {{ range . }}
+    [<a href="{{ .url }}" target="blank" style="font-weight:normal; margin-left:10px;">{{ .text }}</a>{{ with .note }}: {{ . }}{{ end }}]
+    {{ end }}
+    {{ end }}
 </p>
 
 {{ $pid := .pid }}
 {{ with .context.abstract }}<p style="margin:0 0 5px; line-height:1.2;"><a href="javascript:toggle({{ $pid }})">Abstract<span id="pubabslink_{{ $pid }}"> (click to expand)</span></a><span id="pubabs_{{ $pid }}" style="display:none;">: {{ . }}</span></p>{{ end }}
-
-<p style="margin:0 0 5px; line-height:1.2;">
-    {{ with .context.links }}
-    {{ range . }}
-    [<a href="{{ .url }}" target="blank">{{ .text }}</a>{{ with .note }}: {{ . }}{{ end }}]
-    {{ end }}
-    {{ end }}
-</p>
-
