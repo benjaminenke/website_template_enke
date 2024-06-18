@@ -4,16 +4,18 @@
     <p style="margin:0 0 5px; line-height:1.2;">(with {{ . }})</p>
 {{ else }}
     {{ with .context.coeditors }}
-        <p style="margin:0 0 5px; line-height:1.2;">({{ . }})</p>
+        <p style="margin:0 0 5px; line-height:1.2;">{{ . }}</p>
     {{ end }}
 {{ end }}
 
 {{ with .context.note }}<p style="margin:0 0 5px; line-height:1.2;">{{ . }}</p>{{ end }}
 
 <p style="margin:0 0 5px; line-height:1.2;">
-    {{ with .context.bookprefix }}<em>{{ . }}</em>{{ end }}
-    {{ with .context.book }}<em><u>{{ . }}</u></em>{{ end }}
+    {{ with .context.bookprefix }}<em>{{ . }}</em>{{ end }}{{ if .context.bookprefix }} {{ end }}
+    {{ with .context.book }}<em><u>{{ . }}</u></em>{{ end }}{{ if .context.book }} {{ end }}
     {{ with .context.booksuffix }}<em>{{ . }}</em>{{ end }}
+</p>
+<p style="margin:0 0 5px; line-height:1.2;">
     {{ with .context.pdflink }}[<a href="{{ . }}" target="blank" style="font-weight:normal;">PDF</a>]{{ end }}
     {{ with .context.links }}
     {{ range . }}
