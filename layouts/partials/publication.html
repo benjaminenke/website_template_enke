@@ -13,7 +13,7 @@
 <p style="margin:0 0 5px; line-height:1.2;">
     {{ with .context.bookprefix }}<em>{{ . }}</em>{{ end }}
     {{ with .context.book }}<em style="margin-right: 0; padding-right: 0;"><u>{{ . }}</u></em>{{ end }}
-    {{ with .context.booksuffix }}<em style="margin-left: 0; padding-left: 0;">{{ . }}</em>{{ end }}
+    {{ with .context.booksuffix }}<em style="margin-left: -4px; padding-left: 0;">{{ . }}</em>{{ end }}
     {{ with .context.pdflink }}<span style="display:inline;">[<a href="{{ . }}" target="blank" style="font-weight:normal;">PDF</a>]</span>{{ end }}
     {{ with .context.links }}
         {{ range . }}
