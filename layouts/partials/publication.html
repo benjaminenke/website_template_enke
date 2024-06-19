@@ -13,13 +13,11 @@
 <p style="margin:0 0 5px; line-height:1.2;">
     {{ with .context.bookprefix }}<em>{{ . }}</em>{{ end }}
     {{ with .context.book }}
-        <em style="display:inline;"><u>{{ . }}</u></em>
+        <em>
+            <u>{{ (split . ".")._0 }}</u>{{ (split . ".")._1 }}.
+        </em>
     {{ end }}
-    {{ if not .context.booksuffix }}
-        <em style="display:inline;">.</em>
-    {{ else }}
-        {{ with .context.booksuffix }}<em>{{ . }}</em>{{ end }}
-    {{ end }}
+    {{ with .context.booksuffix }}<em>{{ . }}</em>{{ end }}
     {{ with .context.pdflink }}<span style="display:inline;">[<a href="{{ . }}" target="blank" style="font-weight:normal;">PDF</a>]</span>{{ end }}
     {{ with .context.links }}
         {{ range . }}
