@@ -4,7 +4,7 @@
     <p style="margin:0 0 5px; line-height:1.2;">(with {{ . }})</p>
 {{ else }}
     {{ with .context.coeditors }}
-        <p style="margin:0 0 5px; line-height:1.2;">{{ . }}</p>
+        <p style="margin:0 0 5px; line-height:1.2;">({{ . }})</p>
     {{ end }}
 {{ end }}
 
